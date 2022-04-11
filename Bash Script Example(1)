@@ -1,0 +1,14 @@
+#!/bin/bash
+LED3_PATH=/sys/class/leds/beaglebone:green:usr3
+function removeTrigger
+{
+echo none >> "$LED3_PATH/trigger"
+}
+echo "Starting the LED Bash Script"
+if [ $# != 1 ]; then
+echo "There is an incorrect number of arguments. Usage is:"
+echo -e " bashLED Command \n where command is one of "
+echo -e " on, off or flash \n e.g. bashLED on "
+exit 2
+fi
+echo "The LED Command that was passed is: $1 "
